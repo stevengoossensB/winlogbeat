@@ -8,9 +8,9 @@ RUN chmod 755 /bin/mage
 
 # Install virtualenv. Required for beats build processes.
 RUN apt-get update
-# python 2's pip
-RUN apt-get install -y python-pip
-RUN pip install virtualenv
+# python 3's pip
+RUN apt-get install -y python3-pip
+RUN pip3 install virtualenv
 
 #RUN go get github.com/elastic/beats
 RUN mkdir -p $GOPATH/src/github.com/elastic
