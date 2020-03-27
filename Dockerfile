@@ -1,5 +1,4 @@
-FROM golang:1.13
-ARG version=7.3.2
+FROM golang:latest
 ARG mage=1.9.0
 
 # Install mage. Required for beats build processes.
@@ -14,7 +13,7 @@ RUN pip3 install virtualenv
 
 #RUN go get github.com/elastic/beats
 RUN mkdir -p $GOPATH/src/github.com/elastic
-RUN git -C $GOPATH/src/github.com/elastic clone --depth 1 --single-branch --branch v${version} https://github.com/elastic/beats
+RUN git -C $GOPATH/src/github.com/elastic clone https://github.com/elastic/beats.git
 WORKDIR $GOPATH/src/github.com/elastic/beats
 
 # Target winlogbeat
